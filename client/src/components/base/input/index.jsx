@@ -4,7 +4,7 @@ import "./style.css";
 const Input = ({ onChange, label, placeholder=label, type = "text" }) => {
   return (
     <div className="flex column baseInput">
-      <label>{label}</label>
+      <label>{label}: </label>
       <input
         className="roundedMedium"
         type={type}
