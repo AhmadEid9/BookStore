@@ -17,10 +17,17 @@ const booksShcema = new mongoose.Schema({
 const usersSchema = new mongoose.Schema({
     firstName: String,
     lastName: String,
+    username: {
+        type: String,
+        required: true,
+        unique: true
+    },
     email: {
         type: String,
-        unique: true,
+        required: true,
+        unique: true
     },
+    
     password: String,
     favorite: [booksShcema]
 }, {
