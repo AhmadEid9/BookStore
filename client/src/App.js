@@ -1,16 +1,18 @@
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import Button from './components/base/button';
-import Input from './components/base/input';
+import Navbar from './components/base/navbar';
+import Login from './components/pages/loginForm';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        
+        <Navbar/>        
       </header>
       <main>
-        <Input label={"Name"} onChange={() => console.log("Change")}/>
-        <Button text={"Button"} onClick={() => console.log("Clicked")}/>
+        <Routes>
+          <Route path='/login' element={<Login/>}/>
+        </Routes>
       </main>
     </div>
   );
