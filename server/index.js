@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
 const mongooseConnect = require("./configs/mongoDB.connect");
-require("dotenv").config()
 
 app.use(express.json())
 
@@ -13,8 +12,8 @@ app.use("/auth", authRouter)
 const usersRouter = require("./routes/users.routes");
 app.use("/users", authMiddleware, usersRouter)
 
-const staysRouter = require("./routes/stays.routes");
-app.use("/stays", staysRouter)
+const booksRouter = require("./routes/books.routes");
+app.use("/stays", booksRouter)
 
 app.listen(8000, (err)=>{
     if(err){

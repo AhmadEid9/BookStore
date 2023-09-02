@@ -1,18 +1,11 @@
 const mongoose = require("mongoose");
 
-const book = new mongoose.Schema({
-    user: {
+const followedBookSchema = new mongoose.Schema({
+    bookId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "User"
+        ref: 'Book'
     },
-}, { timestamps: true });
-
-const booksShcema = new mongoose.Schema({
-    title: String,
-    author: String,
-    description: String,
-    pic_url: String
-}, {timestamps: true})
+  });
 
 const usersSchema = new mongoose.Schema({
     firstName: String,
@@ -29,7 +22,7 @@ const usersSchema = new mongoose.Schema({
     },
     
     password: String,
-    favorite: [booksShcema]
+    followed: [followedBookSchema]
 }, {
     timestamps: true
 })

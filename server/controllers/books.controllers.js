@@ -1,4 +1,5 @@
 const User = require("../models/users.model")
+const Book = require("../models/books.model")
 
 const getBooks = async(req, res) => {
      const {id} = req.params
@@ -13,6 +14,10 @@ const getBooks = async(req, res) => {
 
      const book = books.find(book=> book._id === id)
      return res.send(book)
+}
+
+const postBook = async (req, res) => {
+     const {name, author, } = req.body
 }
 
 const getMyBooks = async (req, res)=> {
