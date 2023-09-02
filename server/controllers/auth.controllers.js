@@ -5,7 +5,7 @@ const User = require("../models/users.model")
 
 const login = async (req, res)=>{
     
-    const {email: login, password} = req.body;
+    const { email: login, password } = req.body;
     const user = await User.findOne({email: login})
     
     if(!user){
@@ -26,17 +26,23 @@ const login = async (req, res)=>{
 }
 
 const register = async(req, res)=>{
-    const {password} = req.body
+    const { password } = req.body
 
-    const hashedPassword = await bcrypt.hash(password, 10);
-    const user = new User({
-        ...req.body,
-        password: hashedPassword
-    });
+    console.log(req.body);
 
-    user.save()
-
-    res.send(user)
+    try{        
+        const hashedPassword = await bcrypt.hash(password, 10)
+        const user = new User({
+            ...req.body,
+            password: hashedPassword
+        });
+        
+        user.save()
+        
+        res.send(user)
+    } catch (e){
+        console.log(e.message);
+    }
     
 }
 

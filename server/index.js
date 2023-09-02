@@ -13,7 +13,7 @@ const usersRouter = require("./routes/users.routes");
 app.use("/users", authMiddleware, usersRouter)
 
 const booksRouter = require("./routes/books.routes");
-app.use("/stays", booksRouter)
+app.use("/books", booksRouter)
 
 app.listen(8000, (err)=>{
     if(err){

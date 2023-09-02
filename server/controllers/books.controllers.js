@@ -17,7 +17,22 @@ const getBooks = async(req, res) => {
 }
 
 const postBook = async (req, res) => {
-     const {name, author, } = req.body
+     const {title, author, description, picture} = req.body
+
+     try{
+          const book = new Book({
+               title,
+               author,
+               description,
+               picture
+          });
+          
+          book.save()
+          
+          res.send(book)
+      } catch (e){
+          console.log(e.message);
+      }
 }
 
 const getMyBooks = async (req, res)=> {
@@ -26,4 +41,4 @@ const getMyBooks = async (req, res)=> {
      res.send(user.books)
 }
 
-module.exports = {getMyBooks, getBooks}
+module.exports = {getMyBooks, getBooks, postBook}

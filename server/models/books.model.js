@@ -4,7 +4,7 @@ const booksShcema = new mongoose.Schema({
     title: String,
     author: String,
     description: String,
-    pic_url: String
+    picture: String
 }, {timestamps: true})
 
 
